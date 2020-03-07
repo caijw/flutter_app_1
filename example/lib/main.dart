@@ -26,7 +26,7 @@ void main() {
   runApp(new MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -86,6 +86,145 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+
+// Flutter code sample for Listener
+
+// This example makes a [Container] react to being touched, showing a count of
+// the number of pointer downs and ups.
+
+// import 'package:flutter/material.dart';
+
+// import 'package:flutter/widgets.dart';
+
+// void main() => runApp(MyApp());
+
+/// This Widget is the main application widget.
+class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: Center(
+          child: MyStatefulWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _downCounter = 0;
+  int _upCounter = 0;
+  double x = 0.0;
+  double y = 0.0;
+
+  void _incrementDown(PointerEvent details) {
+    _updateLocation(details);
+    setState(() {
+      _downCounter++;
+    });
+  }
+
+  void _incrementUp(PointerEvent details) {
+    _updateLocation(details);
+    setState(() {
+      _upCounter++;
+    });
+  }
+
+  void _updateLocation(PointerEvent details) {
+    setState(() {
+      x = details.position.dx;
+      y = details.position.dy;
+    });
+  }
+
+  void onPointerCancel(PointerEvent details) {
+    print('onPointerCancel');
+    print(details);
+  }
+
+  void onPointerDown(PointerEvent details) {
+    print('onPointerDown');
+    print(details);
+  }
+
+  void onPointerEnter(PointerEvent details) {
+    print('onPointerEnter');
+    print(details);
+  }
+
+  void onPointerExit(PointerEvent details) {
+    print('onPointerExit');
+    print(details);
+  }
+
+  void onPointerHover (PointerEvent details) {
+    // print('onPointerHover');
+    // print(details);
+  }
+
+  void onPointerMove (PointerEvent details) {
+    print('onPointerMove');
+    print(details);
+  }
+
+  void onPointerSignal (PointerEvent details) {
+    print('onPointerSignal');
+    print(details);
+  }
+
+  void onPointerUp (PointerEvent details) {
+    print('onPointerUp');
+    print(details);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints.tight(Size(600.0, 400.0)),
+      child: Listener(
+        onPointerCancel: onPointerCancel,
+        onPointerDown: onPointerDown,
+        onPointerEnter: onPointerEnter,
+        onPointerExit: onPointerExit,
+        onPointerHover: onPointerHover,
+        onPointerMove: onPointerMove,
+        onPointerSignal: onPointerSignal,
+        onPointerUp: onPointerUp,
+        child: Container(
+          color: Colors.lightBlueAccent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                  'You have pressed or released in this area this many times:'),
+              Text(
+                '$_downCounter presses\n$_upCounter releases',
+                style: Theme.of(context).textTheme.display1,
+              ),
+              Text(
+                'The cursor is here: (${x.toStringAsFixed(2)}, ${y.toStringAsFixed(2)})',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
