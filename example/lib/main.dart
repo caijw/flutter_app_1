@@ -156,42 +156,42 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   void onPointerCancel(PointerEvent details) {
-    print('onPointerCancel');
+    print('onPointerCancel' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerDown(PointerEvent details) {
-    print('onPointerDown');
+    print('onPointerDown' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerEnter(PointerEvent details) {
-    print('onPointerEnter');
+    print('onPointerEnter' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerExit(PointerEvent details) {
-    print('onPointerExit');
+    print('onPointerExit' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerHover (PointerEvent details) {
-    // print('onPointerHover');
+    // print('onPointerHover' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     // print(details);
   }
 
   void onPointerMove (PointerEvent details) {
-    print('onPointerMove');
+    print('onPointerMove' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerSignal (PointerEvent details) {
-    print('onPointerSignal');
+    print('onPointerSignal' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
   void onPointerUp (PointerEvent details) {
-    print('onPointerUp');
+    print('onPointerUp' + ' ' + (new DateTime.now().millisecondsSinceEpoch).toString());
     print(details);
   }
 
