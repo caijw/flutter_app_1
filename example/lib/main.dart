@@ -198,7 +198,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints.tight(Size(600.0, 400.0)),
+      constraints: BoxConstraints.tight(Size(1000.0, 800.0)),
       child: Listener(
         onPointerCancel: onPointerCancel,
         onPointerDown: onPointerDown,
